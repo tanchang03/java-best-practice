@@ -1,0 +1,5 @@
+
+Rsquid:EmptyStatementUsageCheck%"Remove this empty statement.(ôŸìúÿÿÿÿ8ãàÇ®Í,
+¤squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(“…ĞÇşÿÿÿÿ8ãàÇ®Í,
+V
+squid:S1061"9Replace this use of System.out or System.err by a logger.(¢ì½8ãàÇ®Í,

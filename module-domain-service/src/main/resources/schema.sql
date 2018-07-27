@@ -1,0 +1,1 @@
+create table tb_user (id varchar(32) not null, birthday timestamp, create_time varchar, deleted boolean not null, modify_time timestamp, name varchar(255), user_name varchar(255), version varchar(255), primary key (id))
