@@ -25,3 +25,7 @@ Smodule-domain-service/src/main/java/com/sds/practice/domain/repository/BaseDao.
 lmodule-domain-service/src/test/java/com/sds/practice/domain/service/ModuleDomainServiceApplicationTests.java,7/f/7f99ca9d62b2b0586a6b07d71a9c69f6d6da0a7b
 o
 ?module-domain-service/src/main/resources/application.properties,a/a/aa420ac411a2a31e999d84b225802a95b69e27f3
+„
+Tmodule-domain-service/src/test/java/com/sds/practice/domain/service/BaiduAITest.java,6/2/62f4382ed4abc0cacd92214db33490424457fedc
+€
+Pmodule-domain-service/src/main/java/com/sds/practice/application/controller.java,b/3/b3bf2bb08e61d2f6ac4995105dad4a66df4aebe2

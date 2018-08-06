@@ -2,7 +2,6 @@ package com.sds.practice.domain.entity;
 
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Where;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -21,7 +20,6 @@ import java.util.Date;
  */
 @MappedSuperclass
 @Data
-@Where(clause = "deleted=0")
 public abstract class BaseEntity {
     @Id
 //	@GeneratedValue(strategy = GenerationType.IDENTITY)
