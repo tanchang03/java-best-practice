@@ -27,14 +27,6 @@ public class ModuleDomainServiceApplicationTests {
 	@Autowired
 	private OrganizationService organizationService;
 
-	@Test
-	public void contextLoads() {
-	}
-
-	@Test
-	public void testSaveUser(){
-	};
-
 	/**
 	 * 逻辑删除案例
 	 */
