@@ -35,6 +35,9 @@ public class ModuleDomainServiceApplicationTests {
 	public void testSaveUser(){
 	};
 
+	/**
+	 * 逻辑删除案例
+	 */
 	@Test
 	public void testDeleteUser(){
 		UserEntity user = new UserEntity();
@@ -76,6 +79,9 @@ public class ModuleDomainServiceApplicationTests {
 		organizationService.truncate();
 	}
 
+	/**
+	 *批量保存案例
+	 */
 	@Test
 	public void testBatchSave(){
 		List<UserEntity> users = new ArrayList<>();
@@ -90,9 +96,6 @@ public class ModuleDomainServiceApplicationTests {
 		userService.saveAll(users);
 		System.out.println("保存成功，共耗时："+(System.currentTimeMillis() - dt) + "ms");
 		Assert.assertTrue(userService.count()>=100);
-
-
-
 	}
 
 
@@ -109,18 +112,25 @@ public class ModuleDomainServiceApplicationTests {
 	}
 
 
+	/**
+	 * 自定义条件查询
+	 * 按日期
+	 */
 	@Test
 	public void testFindCustom(){
 		String hql = "from UserEntity obj where obj.userName = ?1 and obj.name= ?2";
 
 		hql = HqlUtil.addCondition(hql,"createTime","2018-08-01",HqlUtil.LOGIC_AND,HqlUtil.TYPE_DATE,HqlUtil.COMPARECHAR_GREAT_EQ);
+		hql = HqlUtil.addCondition(hql,"createTime","2018-08-10",HqlUtil.LOGIC_AND,HqlUtil.TYPE_DATE,HqlUtil.COMPARECHAR_LESS);
 		List result = userService.findByCustomWithParams(hql,"tanchang","谭畅");
 		Assert.assertTrue(result!= null);
 		Assert.assertTrue(result.size() >= 1);
 	}
 
 
-
+	/**
+	 * 关联对象查询
+	 */
 	@Test
 	public void testFindByGroup(){
 
@@ -138,5 +148,17 @@ public class ModuleDomainServiceApplicationTests {
 		Assert.assertTrue("相关部门".equals(org.getName()));
 	}
 
+
+	@Test
+	public void update(){
+		String hql = "from OrganizationEntity obj where obj.code = ?1";
+		OrganizationEntity org = organizationService.findUnique(hql,"00011");
+		Assert.assertNotNull(org);
+		org.setName("研发部修改");
+		organizationService.save(org);
+
+		org = organizationService.findUnique(hql,"00011");
+		Assert.assertTrue(org.getName().equals("研发部修改"));
+	}
 
 }
