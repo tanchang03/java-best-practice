@@ -13,7 +13,7 @@
 ### IntelliJ IDEA ###
 .idea
 *.iws
-*.iml
+module-domain-service/module-domain-service.iml
 *.ipr
 
 ### NetBeans ###
