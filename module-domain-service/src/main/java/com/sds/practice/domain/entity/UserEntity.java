@@ -1,11 +1,12 @@
 package com.sds.practice.domain.entity;
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.util.Date;
 
@@ -21,7 +22,6 @@ import java.util.Date;
 @Entity
 @Table(name="tb_user")
 @Data
-@Builder
 @EqualsAndHashCode(callSuper = true)
 @Where(clause = "deleted=0")
 public class UserEntity extends BaseEntity{
@@ -33,5 +33,15 @@ public class UserEntity extends BaseEntity{
     private Date birthday;
 
     private String sex;
+
+    @ManyToOne
+    @JoinColumn(name="org_id")
+    private OrganizationEntity org;
+
+    public UserEntity(){}
+    public UserEntity(String userName,String name){
+        this.userName = userName;
+        this.name = name;
+    }
 
 }

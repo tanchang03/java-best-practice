@@ -29,6 +29,7 @@ public abstract class BaseEntity {
     @Column(name="id",length = 32)
     private String id;
 
+    @Column(name="create_time",columnDefinition = "timestamp DEFAULT CURRENT_TIMESTAMP")
     private Date createTime;
 
     @Column(name="modify_time",columnDefinition = "")

@@ -1,6 +1,7 @@
 package com.sds.practice.domain.service;
 
 import com.sds.practice.domain.entity.BaseEntity;
+import com.sds.practice.domain.exceptions.MatchMutiEntitiesException;
 import com.sds.practice.domain.repository.BaseDao;
 import com.sds.practice.helper.HqlUtil;
 import com.sds.practice.helper.Page;
@@ -12,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -35,6 +37,11 @@ public abstract class BaseService<T extends BaseEntity,ID extends Serializable> 
     }
 
     public T save(T obj){
+        BaseEntity entity = obj;
+        if(entity.getCreateTime() == null){
+            entity.setCreateTime(new Date());
+        }
+        entity.setModifyTime(new Date());
         return dao().save(obj);
     };
 
@@ -68,9 +75,10 @@ public abstract class BaseService<T extends BaseEntity,ID extends Serializable> 
 
     /**
      * 获取分页里面的数据 注：传进来的 pageNo 要先减去 1
+     * @param pageNo 0开始
      * @return
      */
-    public List getPageList(String jpql, boolean excludeDeleted,int pageNo, int pageSize, Object... params) {
+    public List<T> getPageList(String jpql, boolean excludeDeleted,int pageNo, int pageSize, Object... params) {
         if(logger.isDebugEnabled()){
             logger.debug("findPageList:"+jpql);
         }
@@ -84,6 +92,7 @@ public abstract class BaseService<T extends BaseEntity,ID extends Serializable> 
         }
         query.setMaxResults(pageSize);
         query.setFirstResult(pageNo*pageSize);
+
         return query.getResultList();
     }
 
@@ -157,5 +166,48 @@ public abstract class BaseService<T extends BaseEntity,ID extends Serializable> 
         Object obj = query.getSingleResult();
         long totalCount = (Long) obj;
         return totalCount;
+    }
+
+    public Iterable<T> list() {
+        return this.dao().findAll();
+    }
+
+
+
+    public List<T> list(String hql, Object... params) {
+        Query query = em.createQuery(hql);
+        for (int i = 0; i < params.length; i++) {
+            Object object = params[i];
+            query.setParameter(i+1, object);
+        }
+        return query.getResultList();
+    }
+
+    /**
+     * 唯一性对象查询
+     * 如果返回对象大于1，表明是有问题的
+     * @param hql
+     * @param params
+     * @return
+     * @throws MatchMutiEntitiesException
+     */
+    public T findUnique(String hql, Object ... params)
+            throws MatchMutiEntitiesException {
+        List<T> results = findByCustomWithParams(hql, params);
+        if(results.size() == 0)
+            return null;
+        if(results.size()>1)
+            throw new MatchMutiEntitiesException();
+        else{
+            return results.get(0);
+        }
+    }
+
+
+    /**
+     * 删除所有数据
+     */
+    public void truncate() {
+        dao().deleteAll();
     }
 }
