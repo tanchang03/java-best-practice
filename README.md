@@ -1,6 +1,6 @@
-# java应用基于springboot最佳实践
+# Java应用基于springboot最佳实践
 
-- springboot基本框架搭建
+- Springboot基本框架搭建
 - JPA基于H2的面向对象的模型应用案例
 - 常用抽象基类BaseDao BaseService
 
