@@ -27,4 +27,5 @@ public class UserService extends BaseService<UserEntity,Serializable>{
     public BaseDao<UserEntity, Serializable> dao() {
         return userDao;
     }
+
 }
