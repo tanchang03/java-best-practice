@@ -103,6 +103,16 @@ public class Test001 {
 
     }
 
+    @Test
+    public void test005(){
+        List<String> list = Arrays.asList("hello welcome", "world hello", "hello world",
+                "hello world welcome");
+        List<Stream<String>> xlist = list.stream().map(e -> Arrays.stream(e.split(" "))).collect(Collectors.toList());
+
+        List<String> list2 = list.stream().flatMap(e->Stream.of("a"+e,"b"+e,"c"+e)).collect(Collectors.toList());
+        System.out.println(list2);
+    }
+
 
     /**
      * Function 函数式编程 案例
