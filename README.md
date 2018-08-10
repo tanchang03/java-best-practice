@@ -33,7 +33,7 @@
 
   * 所有配置过滤器可管控的请求都会输出一下日志：
   
-  ```text
+```text
 
 16:41:38.443 [http-nio-8080-exec-1] INFO  c.s.p.application.util.WebLogFilter - Http请求 [0:0:0:0:0:0:0:1][7104E2E314D5F8A2C611E9B724D6D0D8]http://localhost:8080/api/users 
 16:41:38.443 [http-nio-8080-exec-1] DEBUG c.s.p.application.util.WebLogFilter - ContentType：null
