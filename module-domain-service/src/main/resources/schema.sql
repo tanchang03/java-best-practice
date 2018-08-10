@@ -1,4 +1,0 @@
-create table IF NOT EXISTS tb_organization (id varchar(32) not null, create_time timestamp DEFAULT CURRENT_TIMESTAMP, deleted bit default 0, modify_time datetime, sortno int default 0, version int default 0, code varchar(255), name varchar(255), parent_id varchar(32), primary key (id));
-create table IF NOT EXISTS tb_user (id varchar(32) not null, create_time timestamp DEFAULT CURRENT_TIMESTAMP, deleted bit default 0, modify_time datetime, sortno int default 0, version int default 0, birthday datetime, name varchar(255), sex varchar(255), user_name varchar(255), org_id varchar(32), primary key (id));
-create table IF NOT EXISTS tb_user_manager (account263 varchar(255), id varchar(32) not null, primary key (id));
-create table IF NOT EXISTS tb_user_web (openid varchar(255), id varchar(32) not null, primary key (id));

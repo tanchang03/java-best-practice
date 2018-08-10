@@ -1,14 +1,13 @@
 spring:
   datasource:
-#    url: jdbc:mysql://127.0.0.1:3306/practice_001?characterEncoding=utf8&useSSL=false
-#    username: practice
-#    password: 123456
-#    type: com.alibaba.druid.pool.DruidDataSource
-#    schema: classpath:schema.sql
+    url: jdbc:mysql://127.0.0.1:3306/practice_001?characterEncoding=utf8&useSSL=false
+    username: practice
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
     initialization-mode: always
-#    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.jdbc.Driver
   jpa:
     show-sql: true
     generate-ddl: false
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
