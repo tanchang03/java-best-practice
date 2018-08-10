@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 /**
  * @Project : best-practice-project
  * @Package Name : com.sds.practice.domain.service
- * @Description : TODO
+ * @Description : JPA 实体继承案例测试
  * @Author : tanchang
  * @Create Date : 2018年08月10日 下午1:27
  * @ModificationHistory Who   When     What
