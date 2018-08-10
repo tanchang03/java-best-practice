@@ -39,10 +39,10 @@
         </dependency>
 
 		<!-- mysql数据库驱动 -->
-		<!--<dependency>-->
-			<!--<groupId>mysql</groupId>-->
-			<!--<artifactId>mysql-connector-java</artifactId>-->
-		<!--</dependency>-->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
 		<!-- 阿里数据库连接池 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>

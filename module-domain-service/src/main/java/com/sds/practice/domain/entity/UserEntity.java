@@ -4,10 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Where;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -24,6 +21,7 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Where(clause = "deleted=0")
+@Inheritance(strategy=InheritanceType.JOINED)
 public class UserEntity extends BaseEntity{
 
     private String userName;
