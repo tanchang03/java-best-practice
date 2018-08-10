@@ -65,3 +65,12 @@ Hibernate: select userentity0_.id as id1_1_, userentity0_.create_time as create_
          return RestResponse.success(userService.list("from UserEntity obj"));
      }
 ```
+响应体结构如下：
+```text
+{
+    "success":true,
+    "errorCode":null,
+    "errorMsg":null,
+    "data":"返回对象"
+}
+```
