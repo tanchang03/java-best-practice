@@ -27,4 +27,13 @@
 	}
 ```
 
-  
+- 统一请求日志输出
+
+  * WebLogFilter的使用
+- 统一请求返回对象RestResponse
+```java
+     @RequestMapping("/api/users")
+     public RestResponse<List<UserEntity>> list(){
+         return RestResponse.success(userService.list("from UserEntity obj"));
+     }
+```
