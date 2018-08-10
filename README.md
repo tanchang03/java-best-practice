@@ -58,7 +58,7 @@ Hibernate: select userentity0_.id as id1_1_, userentity0_.create_time as create_
 16:41:38.685 [http-nio-8080-exec-1] DEBUG c.s.p.application.util.WebLogFilter - 请求耗时[271ms]=>/api/users
 
 ```
-- 统一请求返回对象RestResponse
+- [统一请求返回对象RestResponse](https://github.com/tanchang03/java-best-practice/wiki/%E7%BB%9F%E4%B8%80%E5%93%8D%E5%BA%94)
 ```java
      @RequestMapping("/api/users")
      public RestResponse<List<UserEntity>> list(){
