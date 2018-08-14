@@ -76,3 +76,4 @@ Hibernate: select userentity0_.id as id1_1_, userentity0_.create_time as create_
 ```
 
 - [如何部署SPRINGBOOT应用到DOCKER](https://github.com/tanchang03/java-best-practice/wiki/SPRINGBOOT-%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2-DOCKER-%E5%AE%9E%E8%B7%B5)
+- [字符串格式化之动态参数占位](https://github.com/tanchang03/java-best-practice/wiki/StringUtils%E4%B9%8B%E5%8A%A8%E6%80%81%E5%8F%82%E6%95%B0%E5%8D%A0%E4%BD%8D)
