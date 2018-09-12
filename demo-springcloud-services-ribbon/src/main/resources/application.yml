@@ -1,0 +1,17 @@
+eureka:
+  client:
+    service-url:
+      defaulZone: http://localhost:8761/eureka/
+server:
+  port: 8764
+spring:
+  application:
+    name: service-ribbon
+logging:
+  level:
+    root: info
+    org:
+      springframework: info
+    com:
+      netflix: debug
+
