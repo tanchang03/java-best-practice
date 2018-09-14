@@ -22,6 +22,7 @@ public class DemoSpringcloudServicesApplication {
 
 	@RequestMapping("/hi")
 	public String home(@RequestParam(value = "name", defaultValue = "forezp") String name) {
+		System.out.println("服务调用：" + name);
 		return "hi " + name + " ,i am from port:" + port;
 	}
 
