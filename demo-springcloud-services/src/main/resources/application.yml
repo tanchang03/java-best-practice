@@ -4,7 +4,9 @@ server:
 spring:
   application:
     name: service-hi
-
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
 eureka:
   client:
     service-url:
